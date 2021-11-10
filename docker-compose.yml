@@ -1,0 +1,15 @@
+version: "3"
+services:
+  repoproxy:
+    image: nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/site-confs:/config/nginx/site-confs
+      - ./nginx/logs:/config/log/nginx
+      - ./repomirror-data:/var/repo_mirror
+      - ./assets:/assets
+    ports:
+      - 8081:80
+    restart: always
+
+
